@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+
+  <!-- White background for favicon readability -->
+  <circle cx="100" cy="100" r="100" fill="#FFFFFF"/>
+
+  <!-- Orbit ring 1: dark blue, tilted -35deg -->
+  <ellipse cx="100" cy="105" rx="88" ry="33"
+    transform="rotate(-35 100 105)"
+    stroke="#1B4F8A" stroke-width="7" fill="none"
+    stroke-linecap="round"/>
+
+  <!-- Orbit ring 2: golden, tilted +35deg -->
+  <ellipse cx="100" cy="105" rx="88" ry="33"
+    transform="rotate(35 100 105)"
+    stroke="#FDB913" stroke-width="7" fill="none"
+    stroke-linecap="round"/>
+
+  <!-- End dots — dark blue ring -->
+  <circle cx="37" cy="152" r="9" fill="#1B4F8A"/>
+  <circle cx="163" cy="58"  r="9" fill="#1B4F8A"/>
+
+  <!-- End dots — golden ring -->
+  <circle cx="37"  cy="58"  r="9" fill="#FDB913"/>
+  <circle cx="163" cy="152" r="9" fill="#FDB913"/>
+
+  <!-- Flask neck -->
+  <rect x="87" y="22" width="26" height="38" rx="4"
+    fill="none" stroke="#1B4F8A" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Flask mouth cap -->
+  <rect x="85" y="18" width="30" height="8" rx="3" fill="#1B4F8A"/>
+
+  <!-- Flask bulb -->
+  <path d="M87,56 L68,110 C62,135 138,135 132,110 L113,56 Z"
+    fill="none" stroke="#1B4F8A" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Liquid fill -->
+  <clipPath id="faviconFlaskClip">
+    <path d="M87,56 L68,110 C62,135 138,135 132,110 L113,56 Z"/>
+  </clipPath>
+  <g clip-path="url(#faviconFlaskClip)">
+    <path d="M58,98 Q100,88 142,98 L142,140 L58,140 Z" fill="#FDB913" opacity="0.9"/>
+    <circle cx="80" cy="112" r="5" fill="#FFDF6B" opacity="0.5"/>
+  </g>
+
+  <!-- Fork tines -->
+  <rect x="89" y="22" width="6" height="40" rx="3" fill="#1B4F8A"/>
+  <rect x="97" y="22" width="6" height="40" rx="3" fill="#1B4F8A"/>
+  <rect x="105" y="22" width="6" height="40" rx="3" fill="#1B4F8A"/>
+  <!-- Fork arch -->
+  <path d="M89,58 h27 v8 c0,9 -5,14 -13.5,14 c-8.5,0 -13.5,-5 -13.5,-14 Z" fill="#1B4F8A"/>
+  <!-- Fork handle -->
+  <rect x="95" y="80" width="10" height="52" rx="5" fill="#1B4F8A"/>
+
+</svg>

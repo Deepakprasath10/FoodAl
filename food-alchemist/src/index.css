@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #004B84;
+    --primary-light: #0D5FA3;
+    --secondary: #FEB21A;
+    --secondary-dark: #E5A400;
+    --dark-navy: #000000;
+    --bg-main: #FFFFFF;
+    --bg-light: #F8FAFC;
+    --bg-warm: #FFFDF8;
+    --text-main: #1F2937;
+    --text-light: #6B7280;
+    --text-lighter: #9CA3AF;
+    --border-light: #E5E7EB;
+    --border-subtle: #F3F4F6;
+  }
+
+  html {
+    zoom: 90%;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    color: #1F2937;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #004B84;
+  }
+
+  .font-heading {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-number {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Custom Utilities for Food Alchemist Theme */
+@layer utilities {
+  .bg-brand-primary { background-color: #004B84; }
+  .bg-brand-primary-light { background-color: #0D5FA3; }
+  .bg-brand-gold { background-color: #FEB21A; }
+  .bg-brand-gold-dark { background-color: #E5A400; }
+  .bg-brand-dark-navy { background-color: #000000; }
+  .bg-brand-light { background-color: #F8FAFC; }
+  .bg-brand-warm { background-color: #FFFDF8; }
+
+  .text-brand-primary { color: #004B84; }
+  .text-brand-primary-light { color: #0D5FA3; }
+  .text-brand-gold { color: #FEB21A; }
+  .text-brand-dark-navy { color: #000000; }
+  .text-brand-main { color: #1F2937; }
+  .text-brand-sub { color: #6B7280; }
+  .text-brand-muted { color: #9CA3AF; }
+
+  .border-brand-primary { border-color: #004B84; }
+  .border-brand-gold { border-color: #FEB21A; }
+  .border-brand-light { border-color: #E5E7EB; }
+  .border-brand-subtle { border-color: #F3F4F6; }
+
+  /* Glassmorphism */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid #E5E7EB;
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(254, 178, 26, 0.25);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid #E5E7EB;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(3deg); }
+}
+
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-24px) rotate(-4deg); }
+}
+
+@keyframes floatFast {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-12px) scale(1.05); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floatMedium 5s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #004B84;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FEB21A;
+}
+
+
+/* ── Live Photo / 3D Hero animations ── */
+@keyframes livePhoto {
+  0%   { transform: perspective(900px) rotateX(2deg)  rotateY(-3deg) scale(1); }
+  25%  { transform: perspective(900px) rotateX(-1.5deg) rotateY(2.5deg) scale(1.01); }
+  50%  { transform: perspective(900px) rotateX(3deg)  rotateY(3deg)  scale(1); }
+  75%  { transform: perspective(900px) rotateX(-2deg) rotateY(-2deg) scale(1.01); }
+  100% { transform: perspective(900px) rotateX(2deg)  rotateY(-3deg) scale(1); }
+}
+@keyframes floatCard1 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(-10px) translateX(4px); }
+  66%       { transform: translateY(6px)  translateX(-3px); }
+}
+@keyframes floatCard2 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(8px)  translateX(-5px); }
+  66%       { transform: translateY(-12px) translateX(3px); }
+}
+@keyframes floatCard3 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(-7px) translateX(6px); }
+  66%       { transform: translateY(10px) translateX(-4px); }
+}
+@keyframes floatCard4 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(12px) translateX(-6px); }
+  66%       { transform: translateY(-8px) translateX(5px); }
+}
+@keyframes floatCard5 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(-9px) translateX(-4px); }
+  66%       { transform: translateY(7px)  translateX(6px); }
+}
+@keyframes floatCard6 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(6px)  translateX(5px); }
+  66%       { transform: translateY(-11px) translateX(-3px); }
+}
+@keyframes floatCard7 {
+  0%, 100% { transform: translateY(0px)   translateX(0px); }
+  33%       { transform: translateY(-6px) translateX(3px); }
+  66%       { transform: translateY(9px)  translateX(-5px); }
+}
+@keyframes floatCenter {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-6px) scale(1.015); }
+}
+@keyframes dashedSpin {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -60; }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.5); }
+}
+
+
+

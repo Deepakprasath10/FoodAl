@@ -1,0 +1,6 @@
+{
+  "name": "Food Alchemist",
+  "description": "Food Alchemist - Transforming food ideas into successful products with formulation, shelf life extension, and manufacturing support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
