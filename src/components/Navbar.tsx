@@ -14,7 +14,9 @@ import {
   Activity,
   Megaphone,
   Scale,
-  Sparkles
+  Sparkles,
+  Code2,
+  CheckCircle2
 } from 'lucide-react';
 import { SERVICES_LIST } from '../constants/data';
 import logoIcon from '../assets/logo-icon.svg';
@@ -34,6 +36,8 @@ function getServiceIcon(iconName: string) {
     case 'Activity': return Activity;
     case 'Megaphone': return Megaphone;
     case 'Scale': return Scale;
+    case 'Code2': return Code2;
+    case 'CheckCircle2': return CheckCircle2;
     default: return Sparkles;
   }
 }
@@ -185,35 +189,6 @@ export default function Navbar({ onOpenAIFormulate, onOpenConsultation }: Navbar
                           );
                         })}
                       </div>
-
-                      {/* SIGARA Dev Services Section */}
-                      <div className="pt-2 border-t border-[#E5E7EB] mt-1">
-                        <div className="px-3 py-1.5 text-[10px] font-black font-number uppercase tracking-wider text-[#FEB21A]">
-                          Technology & Digital Services
-                        </div>
-                        <Link
-                          to="/development-services"
-                          onClick={() => {
-                            setServicesDropdownOpen(false);
-                            handleNavClick('/development-services');
-                          }}
-                          className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
-                            location.pathname === '/development-services'
-                              ? 'bg-[#004B84]/10 text-[#004B84]'
-                              : 'hover:bg-[#F8FAFC] text-[#1F2937]'
-                          }`}
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-[#FEB21A]/10 text-[#FEB21A] flex items-center justify-center shrink-0 mt-0.5 border border-[#FEB21A]/20">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                            </svg>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-xs font-bold font-heading truncate text-[#1F2937]">Development & Services</div>
-                            <div className="text-[10px] text-[#6B7280]">SIGARA Technologies</div>
-                          </div>
-                        </Link>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -310,13 +285,6 @@ export default function Navbar({ onOpenAIFormulate, onOpenConsultation }: Navbar
                             • {srv.title}
                           </Link>
                         ))}
-                        <Link
-                          to="/development-services"
-                          onClick={() => handleNavClick('/development-services')}
-                          className="block py-2 px-3 rounded-xl text-xs font-bold text-[#FEB21A] hover:bg-white transition-colors border-t border-[#E5E7EB] mt-1 pt-3"
-                        >
-                          ✦ Development & Services (SIGARA)
-                        </Link>
                       </div>
                     )}
                   </div>

@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { getMockBotResponse } from '../data/chatbotKnowledgeBase';
 
 // TODO: Replace mock responses with RAG API
@@ -379,12 +380,13 @@ Choose a topic below or ask me anything.`,
                             Book
                           </button>
 
-                          <a
-                            href="/contact"
+                          <Link
+                            to="/contact"
+                            onClick={() => setIsOpen(false)}
                             className="px-2.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-[10px] transition-all flex items-center justify-center gap-1 border border-white/20 text-center"
                           >
                             Contact
-                          </a>
+                          </Link>
 
                           <a
                             href="https://wa.me/916383042701?text=Hi%20Food%20Alchemist%20Team,%20I'm%20interested%20in%20food%20product%20development."

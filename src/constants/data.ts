@@ -10,16 +10,18 @@ import {
   FAQItem,
   BlogPost
 } from '../types';
-import newProductImg from '../assets/new product.jpeg';
-import fiberFeastImg from '../assets/Fiber feast.jpeg';
+import newProductImg from '../assets/new-product.jpeg';
+import fiberFeastImg from '../assets/fiber-feast.jpeg';
 import foodConsultingImg from '../assets/food-consulting.jpg';
 import roviwelImg from '../assets/roviwel.jpeg';
-import eddiesImg from '../assets/Eddies.jpeg';
+import eddiesImg from '../assets/eddies.jpeg';
 import nomuImg from '../assets/nomu.jpeg';
 import legalComplianceImg from '../assets/legal-compliance.jpg';
 import proteinBarRdImg from '../assets/protein-bar-rd.jpg';
 import processEngineeringImg from '../assets/process-engineering.jpg';
 import auditingImg from '../assets/auditing.jpg';
+import productFormulationImg from '../assets/product-formulation.png';
+import brandingImg from '../assets/branding.png';
 
 export const TRUSTED_BRANDS = [
   { name: "Fiber Feast 5G", logo: "Fiber Feast 5G", image: fiberFeastImg },
@@ -163,7 +165,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Superior taste profiles with balanced sweetness and zero off-notes",
       "Repeatable batch consistency across industrial manufacturing equipment"
     ],
-    heroImage: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200"
+    heroImage: productFormulationImg
   },
   {
     id: "nutritional-testing",
@@ -229,7 +231,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "100% compliant front-of-pack claims that protect against misleading marketing lawsuits",
       "Unified brand story connecting ingredients directly to consumer wellness goals"
     ],
-    heroImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1200"
+    heroImage: brandingImg
   },
   {
     id: "legal-assistance",
@@ -716,7 +718,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Fiber Feast 5G Team",
     role: "Client",
     company: "Fiber Feast 5G",
-    avatar: "/src/assets/Fiber feast.jpeg",
+    avatar: fiberFeastImg,
     quote: "We are delighted to share our experience with Food Alchemist and their exceptional support throughout the R&D journey of our high-fibre biscuits. From the very beginning, the team supported us with their valuable knowledge, technical expertise, and continuous guidance. They took the time to understand our expectations and worked closely with us at every stage to refine and perfect the product. What truly stood out was their genuine personal interest in our project. They went beyond simply completing an R&D assignment and treated our product as if it were their own. Their dedication, patience, and commitment played a major role in helping us achieve the final outcome. The result was an exceptional product that met—and in many ways exceeded—our expectations. We are extremely satisfied with the quality of the product and the overall R&D experience. We sincerely thank the entire Food Alchemist team for their expertise, guidance, dedication, and genuine commitment. We are proud to have had them as our R&D partners and look forward to working with them again in the future. Highly recommended for their expertise, professionalism, and passion for creating great products.",
     rating: 5
   },
@@ -725,7 +727,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Founder",
     role: "Founder",
     company: "Roviwel",
-    avatar: "/src/assets/roviwel.jpeg",
+    avatar: roviwelImg,
     quote: "As the founder of Roviwel, I was initially concerned about how our drink formulation would turn out. However, the Alchemist team did a wonderful job throughout the entire process—from sourcing the right raw materials to developing and refining the formulation to match, and even exceed, our expectations. For anyone struggling to find a reliable food consultant, I would definitely recommend Agila and the Alchemist team. You can confidently hand over your requirements to them, and they will put in the effort to develop the product according to your vision. The team showed great patience, dedication, and commitment through multiple trials and all the way to the final formulation. Their efforts and attention to detail truly made a difference. I would definitely choose to work with them again for our future products and ventures.",
     rating: 5
   },
@@ -734,7 +736,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Eddies",
     role: "Client",
     company: "Eddies",
-    avatar: "/src/assets/Eddies.jpeg",
+    avatar: eddiesImg,
     quote: "I would say Food Alchemist is one of the best companies to approach if you’re planning to develop anything related to food. They genuinely treat every project as their own, are very friendly and approachable, and their pricing is quite reasonable compared with other food consultants in India.",
     rating: 5
   },
@@ -743,7 +745,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Nomu",
     role: "Client",
     company: "Nomu",
-    avatar: "/src/assets/nomu.jpeg",
+    avatar: nomuImg,
     quote: "Working with Food Alchemist has been a great experience. What really stood out to me was the way they took ownership of our project and approached it as if it were their own product. They were very approachable, patient with our requirements, and genuinely involved throughout the development process. Their understanding of food product development, formulation, and the practical challenges involved made the entire process much smoother. I would definitely recommend Food Alchemist to anyone looking to develop a food product—they are a team that genuinely cares about getting the product right.",
     rating: 5
   }
