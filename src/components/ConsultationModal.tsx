@@ -28,6 +28,21 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
   useLockBodyScroll(isOpen);
 
+  const handleClose = () => {
+    setFormData({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      date: '2026-07-28',
+      time: '10:00 AM EST',
+      topic: 'New Product Formulation'
+    });
+    setSubmitted(false);
+    setError('');
+    onClose();
+  };
+
   if (!isOpen) return null;
 
   const handleSubmit = async (e: FormEvent) => {
@@ -56,6 +71,15 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
         },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        date: '2026-07-28',
+        time: '10:00 AM EST',
+        topic: 'New Product Formulation'
+      });
       setSubmitted(true);
     } catch (err) {
       console.error('Consultation booking email failed:', err);
@@ -69,7 +93,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-[#004B84]/80 backdrop-blur-md animate-fade-in overflow-y-auto">
       <div className="relative w-full max-w-xl bg-white rounded-3xl border border-[#E5E7EB] shadow-2xl p-6 sm:p-8 my-8">
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-5 right-5 text-[#6B7280] hover:text-[#1F2937] bg-[#F8FAFC] p-2 rounded-full transition-colors"
         >
           <X className="w-5 h-5" />
@@ -247,10 +271,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             </div>
 
             <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
+              onClick={handleClose}
               className="mt-4 px-6 py-2.5 rounded-xl bg-[#004B84] text-white font-bold text-xs hover:bg-[#0D5FA3] transition-all"
             >
               Done & Return

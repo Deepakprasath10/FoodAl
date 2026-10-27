@@ -176,7 +176,7 @@ export default function ServicesPage({ onOpenConsultation }: ServicesPageProps) 
         
         {/* Mobile Horizontal Navigation Bar */}
         <div className="lg:hidden mb-8 overflow-x-auto pb-3 no-scrollbar -mx-4 px-4">
-          <div className="bg-[#FEB21A] p-2 rounded-2xl flex items-center gap-2 min-w-[700px] shadow-lg border border-[#E5A400]">
+          <div className="bg-[#FEB21A] p-2 rounded-2xl flex items-center gap-2 w-max min-w-full shadow-lg border border-[#E5A400]">
             {SERVICES_LIST.map((srv) => {
               const isSelected = activeService.id === srv.id && viewMode === 'single';
               return (

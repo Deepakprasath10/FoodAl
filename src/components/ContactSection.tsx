@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Send, PhoneCall, Mail, MapPin, CheckCircle2, ShieldCheck, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { ContactFormData } from '../types';
 
 export default function ContactSection() {
@@ -42,17 +43,38 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const templateParams = {
+        full_name: formData.name,
+        company_name: formData.company || 'Not provided',
+        email: formData.email,
+        phone: formData.phone,
+        requirements: formData.requirements.join(', '),
+        budget: formData.budget,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID || '',
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
+      );
+
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        requirements: ['Food Formulation'],
+        budget: '$10,000 - $25,000',
+        message: ''
       });
-      const data = await res.json();
-      setResponseMsg(data.message || 'Inquiry submitted successfully!');
+
+      setResponseMsg('Inquiry submitted successfully! Our senior food scientists will respond within 24 hours.');
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      setResponseMsg('Inquiry received! Our senior food scientists will respond within 24 hours.');
+      setResponseMsg('Failed to send inquiry. Please check your connection or try again later.');
       setSubmitted(true);
     } finally {
       setLoading(false);

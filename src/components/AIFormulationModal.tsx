@@ -11,10 +11,20 @@ interface AIFormulationModalProps {
 export default function AIFormulationModal({ isOpen, onClose, onBookConsultation }: AIFormulationModalProps) {
   const [productName, setProductName] = useState('');
   const [category, setCategory] = useState('Functional Beverages');
-  const [targetClaims, setTargetClaims] = useState('Clean Label, No Added Sugar');
-  const [targetPackaging, setTargetPackaging] = useState('UHT Carton / Aluminum Can');
-  const [challenges, setChallenges] = useState('Prevent curdling & extend shelf life to 9 months');
-  const [budget, setBudget] = useState('$10k - $25k');
+  const [targetClaims, setTargetClaims] = useState('');
+  const [targetPackaging, setTargetPackaging] = useState('');
+  const [challenges, setChallenges] = useState('');
+  const [budget, setBudget] = useState('Under $5,000');
+
+  const handleReset = () => {
+    setResult(null);
+    setProductName('');
+    setCategory('Functional Beverages');
+    setTargetClaims('');
+    setTargetPackaging('');
+    setChallenges('');
+    setBudget('Under $5,000');
+  };
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
@@ -29,41 +39,26 @@ export default function AIFormulationModal({ isOpen, onClose, onBookConsultation
     setResult(null);
 
     try {
-      const res = await fetch('/api/ai-formulate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productName,
-          category,
-          targetClaims,
-          targetPackaging,
-          challenges,
-          budget
-        })
+      // Import dynamically to avoid top-level issues if the file wasn't created properly yet
+      const { generateFormulation } = await import('../utils/aiFormulateEngine');
+      
+      const data = generateFormulation({
+        productName,
+        category,
+        targetClaims,
+        targetPackaging,
+        challenges,
+        budget
       });
 
-      const data = await res.json();
-      setResult(data);
+      // Simulate a brief AI processing delay for UX
+      setTimeout(() => {
+        setResult(data);
+        setLoading(false);
+      }, 1500);
+      
     } catch (err) {
-      console.error(err);
-      setResult({
-        productName: productName || 'Custom Product',
-        category,
-        feasibilityScore: '94%',
-        roadmap: [
-          { phase: 'Phase 1: Benchtop Formulation', duration: '2 Weeks', action: 'Design baseline hydrocolloid emulsification system & flavor balance.' },
-          { phase: 'Phase 2: Accelerated Shelf Life Testing', duration: '3 Weeks', action: 'Subject sample to 40°C incubation to verify Q10 stability & zero rancidity.' },
-          { phase: 'Phase 3: Pilot Line Batch Trial', duration: '2 Weeks', action: 'Scale to 500L pilot run and handover SOP to selected co-packer.' }
-        ],
-        scientificConsiderations: [
-          'Water activity (a_w) tuning below 0.60 to inhibit microbial growth.',
-          'Natural botanical polyphenols to replace synthetic BHT/BHA antioxidants.',
-          'NABL lab testing for FSSAI / FDA compliant nutrition labeling.'
-        ],
-        recommendedServices: ['Food Formulation', 'Shelf Life Extension', 'Regulatory Compliance'],
-        estimatedTimeline: '6-8 Weeks Total'
-      });
-    } finally {
+      console.error("AI Engine Error:", err);
       setLoading(false);
     }
   };
@@ -281,7 +276,7 @@ export default function AIFormulationModal({ isOpen, onClose, onBookConsultation
                 <ArrowRight className="w-4 h-4 text-[#FEB21A]" />
               </button>
               <button
-                onClick={() => setResult(null)}
+                onClick={handleReset}
                 className="w-full sm:w-auto px-5 py-3 rounded-xl border border-[#E5E7EB] font-bold text-xs text-[#1F2937] hover:bg-[#F8FAFC] transition-all"
               >
                 Generate Another Concept

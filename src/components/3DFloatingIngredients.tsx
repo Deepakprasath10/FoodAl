@@ -4,7 +4,7 @@ import {
   Settings2, ShieldCheck, ClipboardList, Users
 } from 'lucide-react';
 import logoIcon from '../assets/logo-icon.svg';
-import heroBg from '../assets/Home page floater.jpeg';
+import heroBg from '../assets/home-page-floater.jpeg';
 
 /* ── Card data ── */
 const CARDS = [
@@ -16,7 +16,7 @@ const CARDS = [
     iconBg: '#FDB913',
     iconColor: '#1B4F8A',
     anim: 'floatCard1 5.2s ease-in-out infinite 0s',
-    pos: { top: '5%', left: '2%' },
+    posClasses: 'top-[3%] left-[1%] sm:top-[5%] sm:left-[2%]',
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const CARDS = [
     iconBg: '#1B4F8A',
     iconColor: '#FDB913',
     anim: 'floatCard2 6.0s ease-in-out infinite 0.8s',
-    pos: { top: '5%', right: '2%' },
+    posClasses: 'top-[3%] right-[1%] sm:top-[5%] sm:right-[2%]',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const CARDS = [
     iconBg: '#1B4F8A',
     iconColor: '#ffffff',
     anim: 'floatCard3 5.6s ease-in-out infinite 1.4s',
-    pos: { top: '40%', left: '0%' },
+    posClasses: 'top-[34%] left-[-2%] sm:top-[40%] sm:left-[0%]',
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const CARDS = [
     iconBg: '#FDB913',
     iconColor: '#1B4F8A',
     anim: 'floatCard4 6.4s ease-in-out infinite 0.4s',
-    pos: { top: '40%', right: '0%' },
+    posClasses: 'top-[34%] right-[-2%] sm:top-[40%] sm:right-[0%]',
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const CARDS = [
     iconBg: '#FDB913',
     iconColor: '#1B4F8A',
     anim: 'floatCard5 4.9s ease-in-out infinite 1.1s',
-    pos: { bottom: '16%', left: '2%' },
+    posClasses: 'bottom-[18%] left-[0%] sm:bottom-[16%] sm:left-[2%]',
   },
   {
     id: 6,
@@ -66,7 +66,7 @@ const CARDS = [
     iconBg: '#1B4F8A',
     iconColor: '#FDB913',
     anim: 'floatCard6 5.8s ease-in-out infinite 1.8s',
-    pos: { bottom: '16%', right: '2%' },
+    posClasses: 'bottom-[18%] right-[0%] sm:bottom-[16%] sm:right-[2%]',
   },
 ];
 
@@ -164,25 +164,24 @@ export default function FloatingIngredients() {
 
         {/* ── 6 service cards ── */}
         {CARDS.map((c) => (
-          <div key={c.id} className="absolute z-20" style={{ ...c.pos, animation: c.anim }}>
-            <div className="flex items-center gap-3 px-4 py-3 rounded-2xl shadow-2xl"
+          <div key={c.id} className={`absolute z-40 ${c.posClasses}`} style={{ animation: c.anim }}>
+            <div className="flex items-center gap-2 sm:gap-3 p-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-2xl"
               style={{
                 background: 'rgba(255,255,255,0.95)',
                 border: '1px solid rgba(255,255,255,0.6)',
                 backdropFilter: 'blur(14px)',
                 WebkitBackdropFilter: 'blur(14px)',
-                minWidth: '170px',
-                maxWidth: '198px',
+                width: 'clamp(120px, 38vw, 198px)',
                 boxShadow: '0 8px 28px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.12)',
               }}
             >
-              <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center shadow-sm"
+              <div className="shrink-0 w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center shadow-sm"
                 style={{ background: c.iconBg }}>
-                <c.Icon size={19} color={c.iconColor} strokeWidth={2.2} />
+                <c.Icon className="w-3.5 h-3.5 sm:w-[19px] sm:h-[19px]" color={c.iconColor} strokeWidth={2.2} />
               </div>
-              <div>
-                <p className="text-[11px] font-extrabold leading-tight text-[#1B4F8A]">{c.title}</p>
-                <p className="text-[9.5px] font-medium mt-0.5 leading-tight text-[#6B7280]">{c.sub}</p>
+              <div className="flex-1 min-w-0">
+                <p className="text-[9px] sm:text-[11px] font-extrabold leading-tight text-[#1B4F8A]">{c.title}</p>
+                <p className="text-[7.5px] sm:text-[9.5px] font-medium mt-0.5 leading-tight text-[#6B7280]">{c.sub}</p>
               </div>
             </div>
           </div>
@@ -193,47 +192,47 @@ export default function FloatingIngredients() {
           <div
             className="flex flex-col items-center justify-center rounded-full"
             style={{
-              width: '252px',
-              height: '252px',
+              width: 'clamp(170px, 45vw, 252px)',
+              height: 'clamp(170px, 45vw, 252px)',
               background: 'radial-gradient(circle at 38% 32%, rgba(255,255,255,0.98) 0%, rgba(235,244,255,0.96) 100%)',
               border: '2.5px solid rgba(27,79,138,0.20)',
               boxShadow: '0 16px 60px rgba(0,0,0,0.35), 0 0 0 10px rgba(253,185,19,0.08)',
               backdropFilter: 'blur(24px)',
               textAlign: 'center',
-              padding: '22px 18px',
+              padding: 'clamp(10px, 3vw, 22px) clamp(8px, 2.5vw, 18px)',
             }}
           >
-            <img src={logoIcon} alt="Food Alchemist" style={{ width: 44, height: 44, marginBottom: 6 }} />
-            <p style={{ fontWeight: 900, fontSize: 15, letterSpacing: '0.12em', color: '#1B4F8A', lineHeight: 1.1, margin: 0 }}>FOOD</p>
-            <p style={{ fontWeight: 900, fontSize: 15, letterSpacing: '0.12em', color: '#1B4F8A', lineHeight: 1.1, marginBottom: 8 }}>ALCHEMIST</p>
-            <p style={{ fontWeight: 800, fontSize: 12, color: '#1B4F8A', lineHeight: 1.35, marginBottom: 4 }}>
+            <img src={logoIcon} alt="Food Alchemist" style={{ width: 'clamp(28px, 8vw, 44px)', height: 'clamp(28px, 8vw, 44px)', marginBottom: 'clamp(2px, 1vw, 6px)' }} />
+            <p style={{ fontWeight: 900, fontSize: 'clamp(11px, 3.5vw, 15px)', letterSpacing: '0.12em', color: '#1B4F8A', lineHeight: 1.1, margin: 0 }}>FOOD</p>
+            <p style={{ fontWeight: 900, fontSize: 'clamp(11px, 3.5vw, 15px)', letterSpacing: '0.12em', color: '#1B4F8A', lineHeight: 1.1, marginBottom: 'clamp(4px, 1.5vw, 8px)' }}>ALCHEMIST</p>
+            <p style={{ fontWeight: 800, fontSize: 'clamp(9px, 2.8vw, 12px)', color: '#1B4F8A', lineHeight: 1.35, marginBottom: 'clamp(2px, 1vw, 4px)' }}>
               From Idea<br />
               <span style={{ color: '#FDB913' }}>→</span> Product <span style={{ color: '#FDB913' }}>→</span> Market
             </p>
-            <p style={{ fontSize: 9, fontWeight: 500, color: '#6B7280', lineHeight: 1.5, maxWidth: 180 }}>
+            <p style={{ fontSize: 'clamp(7.5px, 2.2vw, 9px)', fontWeight: 500, color: '#6B7280', lineHeight: 1.5, maxWidth: 'clamp(130px, 35vw, 180px)' }}>
               Science-led innovation to create healthy, tasty and commercially successful food products.
             </p>
           </div>
         </div>
 
         {/* ── Bottom pill ── */}
-        <div className="absolute z-20"
-          style={{ bottom: '3%', left: '50%', transform: 'translateX(-50%)', animation: 'floatCard7 5.5s ease-in-out infinite 0.6s', whiteSpace: 'nowrap' }}>
-          <div className="flex items-center gap-3 px-5 py-3 rounded-2xl"
+        <div className="absolute z-40 w-max max-w-[90vw]"
+          style={{ bottom: '3%', left: '50%', transform: 'translateX(-50%)', animation: 'floatCard7 5.5s ease-in-out infinite 0.6s' }}>
+          <div className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl"
             style={{
               background: '#1B4F8A',
               border: '1px solid rgba(253,185,19,0.40)',
               boxShadow: '0 10px 40px rgba(0,0,0,0.40)',
             }}
           >
-            <div className="shrink-0 w-9 h-9 rounded-xl flex items-center justify-center"
+            <div className="shrink-0 w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center"
               style={{ background: 'rgba(253,185,19,0.18)' }}>
-              <Users size={17} color="#FDB913" strokeWidth={2.2} />
+              <Users className="w-4 h-4 sm:w-[17px] sm:h-[17px]" color="#FDB913" strokeWidth={2.2} />
             </div>
-            <div>
-              <p style={{ fontSize: 11, fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>Market Ready Solutions</p>
-              <p style={{ fontSize: 9, fontWeight: 500, color: 'rgba(255,255,255,0.70)', lineHeight: 1.4 }}>
-                Consumer-focused. Scientifically proven. Commercially successful.
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] sm:text-[11px]" style={{ fontWeight: 800, color: '#fff', lineHeight: 1.2 }}>Market Ready Solutions</p>
+              <p className="text-[8px] sm:text-[9px] whitespace-normal sm:whitespace-nowrap" style={{ fontWeight: 500, color: 'rgba(255,255,255,0.70)', lineHeight: 1.4 }}>
+                Consumer-focused. Scientifically proven. <br className="sm:hidden" />Commercially successful.
               </p>
             </div>
           </div>

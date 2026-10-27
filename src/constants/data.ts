@@ -12,7 +12,7 @@ import {
 } from '../types';
 import newProductImg from '../assets/new-product.jpeg';
 import fiberFeastImg from '../assets/fiber-feast.jpeg';
-import foodConsultingImg from '../assets/food-consulting.jpg';
+import foodConsultingImg from '../assets/food consulting.jpeg';
 import roviwelImg from '../assets/roviwel.jpeg';
 import eddiesImg from '../assets/eddies.jpeg';
 import nomuImg from '../assets/nomu.jpeg';
@@ -22,6 +22,7 @@ import processEngineeringImg from '../assets/process-engineering.jpg';
 import auditingImg from '../assets/auditing.jpg';
 import productFormulationImg from '../assets/product-formulation.png';
 import brandingImg from '../assets/branding.png';
+import productIdeologyImg from '../assets/product idealogy.jpeg';
 
 export const TRUSTED_BRANDS = [
   { name: "Fiber Feast 5G", logo: "Fiber Feast 5G", image: fiberFeastImg },
@@ -132,7 +133,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Data-backed product validation before investing heavy R&D capital",
       "High consumer appeal tailored to specific health & lifestyle segments"
     ],
-    heroImage: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1200"
+    heroImage: productIdeologyImg
   },
   {
     id: "product-formulation",
